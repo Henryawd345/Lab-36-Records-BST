@@ -23,7 +23,5 @@ int main() {
     cout << "Codes loaded into BST (in-order):" << endl;
     tree.displayInOrder();
 
-    
-
     return 0;
 }
