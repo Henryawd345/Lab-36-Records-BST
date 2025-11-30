@@ -1,16 +1,26 @@
 #include <iostream>
+#include <fstream> 
 #include "IntBinaryTree.h"
 using namespace std;
 
 int main() {
     IntBinaryTree tree;
 
-    tree.insertNode("B20");
-    tree.insertNode("A5");
-    tree.insertNode("C9");
-    tree.insertNode("@31");
+    ifstream fin("codes.txt");
+    if (!fin){
+        cout << "Error: could not open codes.txt" << endl;
+        return 1;
+    }
 
-    tree.displayInOrder();
+    string code;
+    while (getline(fin, code)){
+        if (!code.empty()){
+            tree.insertNode(code);
+        }
+    }
+    fin.close();
+
+    
 
     return 0;
 }
