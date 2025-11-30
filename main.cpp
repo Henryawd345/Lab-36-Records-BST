@@ -57,15 +57,38 @@ int main() {
             break;
 
         case 3:
-            // Search record
+            cout << "Enter code to search: ";
+            cin >> oricode;
+
+            if (tree.searchNode(oricode)) {
+                cout << "Record \"" << oricode << "\" found.\n";
+            } else {
+                cout << "Record \"" << oricode << "\" not found.\n";
+            }
             break;
 
         case 4:
-            // Modify record
+            cout << "Enter code to modify: ";
+            cin >> oricode;
+
+            if (!tree.searchNode(oricode)){
+                cout << "Record \"" << oricode << "\" not found. Cannot modify.\n";
+            }
+            else {
+                cout << "Enter new code value: ";
+                cin >> newCode;
+
+                tree.remove(oricode);
+                tree.insertNode(newCode);
+
+                cout << "Record updated from \"" << oricode << "\" to \"" << newCode << "\".\n";
+            }
+
             break;
 
         case 5:
-            // Display records
+            cout << "Records (in-order traversal):\n";
+            tree.displayInOrder();
             break;
 
         case 0:
