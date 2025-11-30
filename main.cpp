@@ -20,6 +20,9 @@ int main() {
     }
     fin.close();
 
+    cout << "Codes loaded into BST (in-order):" << endl;
+    tree.displayInOrder();
+
     
 
     return 0;
